@@ -1,0 +1,17 @@
+# Ignore common large/generated files but do NOT ignore .env.local
+# This file intentionally avoids patterns like "*.local" so tools can read .env.local
+
+# Dependencies and build outputs
+node_modules/
+dist/
+
+# Editor / OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Keep environment files (do NOT include *.local)
+

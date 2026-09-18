@@ -1,0 +1,144 @@
+/* Global theme variables and dark-mode overrides.
+   Tailwind classes are used throughout the app; to enable a dark appearance
+   when the 'dark' class is set on the documentElement we override the most
+   commonly used utility classes with !important rules.
+*/
+
+:root {
+  --bg-default: #f8fafc;
+  --card-default: #ffffff;
+  --muted-text-default: #94a3b8;
+  --text-default: #0f1724;
+  --border-default: #f1f5f9;
+  --accent-default: #ff6a00;
+}
+
+body {
+  background-color: var(--bg-default);
+  color: var(--text-default);
+}
+
+/* Dark theme variables */
+.dark {
+  --bg-default: #071021;
+  --card-default: #0b1220;
+  --muted-text-default: #9fb6c9;
+  --text-default: #e6eef8;
+  --border-default: #0f1b2a;
+  --accent-default: #ff8a3d;
+}
+
+/* Generic element overrides */
+.dark body {
+  background-color: var(--bg-default) !important;
+  color: var(--text-default) !important;
+}
+
+/* Common Tailwind utility overrides used in the app */
+.dark .bg-white { background-color: var(--card-default) !important; }
+.dark .bg-slate-50 { background-color: rgba(11,18,32,0.6) !important; }
+.dark .bg-slate-100 { background-color: rgba(11,18,32,0.75) !important; }
+.dark .bg-slate-200 { background-color: rgba(11,18,32,0.85) !important; }
+.dark .text-slate-900, .dark .text-slate-800 { color: var(--text-default) !important; }
+.dark .text-slate-600, .dark .text-slate-500, .dark .text-slate-400 { color: var(--muted-text-default) !important; }
+.dark .border-slate-100, .dark .border-slate-50, .dark .border-slate-200 { border-color: var(--border-default) !important; }
+.dark .shadow-lg, .dark .shadow-2xl, .dark .shadow-xl { box-shadow: 0 6px 24px rgba(2,6,23,0.6) !important; }
+.dark .selection\\:bg-orange-200 ::selection { background-color: rgba(255,138,61,0.2) !important; }
+.dark .bg-orange-50 { background-color: rgba(255,138,61,0.06) !important; }
+.dark .text-orange-600, .dark .text-orange-500 { color: var(--accent-default) !important; }
+
+/* Inputs and cards */
+.dark input, .dark textarea, .dark select {
+  background-color: rgba(10,15,22,0.5) !important;
+  color: var(--text-default) !important;
+  border-color: var(--border-default) !important;
+}
+.dark .rounded-\[2\.5rem\], .dark .rounded-3xl, .dark .rounded-2xl {
+  background-color: var(--card-default) !important;
+}
+
+/* Small tweaks for focused states */
+.dark :focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255,138,61,0.08);
+}
+
+/* Scrollbar for dark mode */
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Make the top header bar dark when the dark theme is active */
+.dark header {
+  background-color: rgba(7, 16, 33, 0.9) !important;
+  border-bottom: 1px solid var(--border-default) !important;
+  box-shadow: none !important;
+  color: var(--text-default) !important;
+}
+
+/* Ensure header children that rely on Tailwind text/bg utilities adapt */
+.dark header .bg-white, .dark header .bg-white\/90 {
+  background-color: transparent !important;
+}
+.dark header .border-slate-100, .dark header .border-slate-50 {
+  border-color: transparent !important;
+}
+.dark header img {
+  filter: none !important;
+}
+
+/* Button outlines and ensure customize button turns orange on group hover in dark mode */
+.dark .group .flex.items-center.bg-slate-100 {
+  background-color: rgba(11,18,32,0.60) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.6) inset, 0 1px 0 rgba(255,255,255,0.02) !important;
+}
+.dark .group .flex.items-center.bg-slate-100 button {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--muted-text-default) !important;
+  transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+.dark .group .flex.items-center.bg-slate-100 button:hover {
+  background-color: rgba(255,255,255,0.03) !important;
+  color: var(--accent-default) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.55);
+}
+
+/* Make the 'Customize Order' button (uses .group-hover:bg-orange-600) apply in dark mode */
+.dark .group:hover .group-hover\:bg-orange-600,
+.dark .group:focus-within .group-hover\:bg-orange-600 {
+  background-color: var(--accent-default) !important;
+  box-shadow: 0 8px 30px rgba(255,138,61,0.12) !important;
+  border: 1px solid rgba(255,138,61,0.06) !important;
+}
+.dark .group:hover .group-hover\:text-white,
+.dark .group:focus-within .group-hover\:text-white {
+  color: #fff !important;
+}
+
+/* Ensure the plus icon in the Customize button becomes visible */
+.dark .group:hover .group-hover\:rotate-90,
+.dark .group:focus-within .group-hover\:rotate-90 {
+  transform: rotate(90deg) !important;
+}
+.dark .group:hover .group-hover\:text-white svg,
+.dark .group:focus-within .group-hover\:text-white svg {
+  color: #fff !important;
+}
+
+/* Extra emphasis for customize button container and quantity controls */
+.dark .group .flex.gap-2.pt-2 {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.55);
+}
+.dark .group .flex.gap-2.pt-2 button {
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+.dark .group .flex.gap-2.pt-2 button:hover {
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}

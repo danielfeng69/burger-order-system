@@ -1,0 +1,56 @@
+.dark .group .flex.items-center.bg-slate-100 {
+  border: 1px solid rgba(255,255,255,0.28) !important;
+  box-shadow: 0 12px 36px rgba(2,6,23,0.85) inset, 0 4px 0 rgba(255,255,255,0.03) !important;
+}
+.dark .group .flex.items-center.bg-slate-100 button,
+.dark .group .flex.items-center.bg-slate-100 span {
+  color: #ffffff !important;
+}
+.dark .group .flex.items-center.bg-slate-100 button:hover {
+  background-color: rgba(255,255,255,0.08) !important;
+  box-shadow: 0 16px 44px rgba(2,6,23,0.9), 0 0 0 5px rgba(255,255,255,0.03) inset;
+  color: var(--accent-default) !important;
+}
+.dark .group .flex.gap-2.pt-2 {
+  /* remove wrapper rectangle but keep spacing; individual buttons receive prominent outlines */
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+.dark .group:hover .group-hover\:bg-orange-600,
+.dark .group:focus-within .group-hover\:bg-orange-600 {
+  box-shadow: 0 26px 110px rgba(255,138,61,0.32) !important;
+  border: 1px solid rgba(255,138,61,0.2) !important;
+}
+
+/* Apply prominent outline to individual buttons that are outlined in light theme.
+   Target buttons whose class attribute contains 'border' or light background hints so
+   existing outlined buttons receive the same high-contrast treatment in dark mode.
+*/
+.dark button[class*="border"],
+.dark button[class*="bg-white"],
+.dark button[class*="bg-slate-50"],
+.dark button[class*="bg-slate-100"],
+.dark button[class*="rounded-2xl"],
+.dark .px-6.py-3 {
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow: 0 10px 28px rgba(2,6,23,0.7) !important;
+  background-color: rgba(255,255,255,0.02) !important;
+  color: var(--text-default) !important;
+}
+
+.dark button[class*="border"]:hover,
+.dark button[class*="bg-white"]:hover,
+.dark button[class*="bg-slate-50"]:hover,
+.dark .px-6.py-3:hover {
+  border-color: rgba(255,138,61,0.14) !important;
+  box-shadow: 0 14px 40px rgba(255,138,61,0.14) !important;
+  transform: translateY(-1px);
+}
+
+.dark .flex.items-center.bg-slate-100 {
+  /* ensure the quantity control's container still stands out */
+  border: 1px solid rgba(255,255,255,0.22) !important;
+  box-shadow: 0 10px 28px rgba(2,6,23,0.8) inset !important;
+}

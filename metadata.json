@@ -1,0 +1,7 @@
+{
+  "name": "Buns Out Burger Order System",
+  "description": "A comprehensive burger ordering and management system featuring customization, payment/delivery selection, and an AI-powered admin dashboard.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
